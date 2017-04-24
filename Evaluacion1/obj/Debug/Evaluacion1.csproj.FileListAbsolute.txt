@@ -1,0 +1,6 @@
+c:\users\hans.aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\obj\Debug\Evaluacion1.csprojResolveAssemblyReference.cache
+c:\users\hans.aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\bin\Evaluacion1.dll.config
+c:\users\hans.aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\bin\Evaluacion1.dll
+c:\users\hans.aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\bin\Evaluacion1.pdb
+c:\users\hans.aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\obj\Debug\Evaluacion1.dll
+c:\users\hans.aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\obj\Debug\Evaluacion1.pdb
