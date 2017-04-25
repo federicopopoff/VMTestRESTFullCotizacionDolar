@@ -69,6 +69,7 @@
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\tether.min.js" />
     <Content Include="index.html" />
+    <Content Include="Scripts\xml2json.js" />
     <Content Include="Services\servicioFront.js" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="Web.config" />

@@ -1,5 +1,5 @@
 ﻿
-//(function () {
-    angular.module('app', ['ngResource']);
-//})();
+
+angular.module('app', ['ngResource']);
+
 
