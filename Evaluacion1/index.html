@@ -15,6 +15,7 @@
     <script src="app/myApp.js"></script>
     <script src="app/config.js"></script>
     <script src="Services/servicioFront.js"></script>
+    <script src="Services/ServicioTiempo.js"></script>
     <script src="Controllers/controladorFront.js"></script>
 </head>
 <body ng-controller="myCtrl">
@@ -39,7 +40,7 @@
                     <div class="card card-outline-info mb-3 text-center" ng-repeat="item in Dolar">
                         <div class="card-block">
                             <blockquote class="card-blockquote">
-                                <p>Cotiza en: <b>{{item.PrecioVenta}} </b> <small class="text-muted">LU:</small><small class="text-muted">{{haceCuantoTiempo(item.stamp)}}</small></p>
+                                <p>Cotiza en: <b>{{item.PrecioVenta}} </b> <small class="text-muted">LU:</small><small class="text-muted">{{servicioTiempoAnterior(item.stamp)}}</small></p>
                             </blockquote>
                         </div>
                     </div>
