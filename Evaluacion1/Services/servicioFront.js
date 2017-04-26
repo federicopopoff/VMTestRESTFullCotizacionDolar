@@ -16,9 +16,8 @@ function apiservice($http) {
                 var stamp = tiempo.getTime();
                 //obtencion de data
                 var data = $.xml2json(response.data);
-                data = '{"actualizacion":"' + data.moneda.Actualizacion + '","PrecioCompra":"' + data.moneda.PrecioCompra + '","PrecioVenta":"' + data.moneda.PrecioVenta + '","stamp":"'+stamp+'"}';
+                data = '{"actualizacion":"' + data.moneda.Actualizacion + '","PrecioCompra":"' + data.moneda.PrecioCompra + '","PrecioVenta":"' + data.moneda.PrecioVenta + '","stamp":"'+stamp+'","moneda":"'+aux+'"}';
 
-                //comprobacion de objeto en localstorage
                 //----condicion de existencia de registro
                 //localStorage.length
                 if (localStorage.DataStorage != undefined) {

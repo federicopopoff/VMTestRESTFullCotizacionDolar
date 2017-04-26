@@ -4,22 +4,19 @@ angular
     .controller('myCtrl', myCtrl);
 
 //inyeccion
-myCtrl.$inject = ['$scope', 'apiservice', 'tiempo']
+myCtrl.$inject = ['$scope', 'apiservice', 'tiempo','prueba']
 
 //declaracion de metodos y propiedades
 
-function myCtrl($scope, apiservice, tiempo) {
-    $scope.localStorage = localStorage.DataStorage;
+function myCtrl($scope, apiservice, tiempo,prueba) {
 
-    if (localStorage.DataStorage != undefined) {
-        $scope.Dolar = JSON.parse( localStorage.DataStorage);
-    } else {
-        apiservice.setInfoLocalFromWeb('dolar').then($scope.Dolar = JSON.parse(localStorage.DataStorage));
-        
-    }
-
-    $scope.setInfoLocalFromWeb = function () {
-        apiservice.setInfoLocalFromWeb('dolar');
+    $scope.setInfoLocalFromWeb = function (ref) {
+        apiservice.setInfoLocalFromWeb(ref);
+        if (localStorage.DataStorage != undefined) {
+            $scope.DataBase = JSON.parse( localStorage.DataStorage);
+        } else {
+            console.log("error en obtencion de datos");
+        }
     }
 
     $scope.servicioTiempoAnterior = function (ref) {

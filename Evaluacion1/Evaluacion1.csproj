@@ -71,6 +71,7 @@
     <Content Include="index.html" />
     <Content Include="Scripts\xml2json.js" />
     <Content Include="Services\servicioFront.js" />
+    <Content Include="Services\ServicioPrueba.js" />
     <Content Include="Services\ServicioTiempo.js" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="Web.config" />
