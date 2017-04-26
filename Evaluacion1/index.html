@@ -12,8 +12,8 @@
     <script src="Scripts/angular-resource.js"></script>
     <script src="Scripts/xml2json.js"></script>
     <!--scripts-->
-    <script src="app/myApp.js"></script>
-    <script src="app/config.js"></script>
+    <script src="App/config.js"></script>
+    <script src="App/myApp.js"></script>
     <script src="Services/servicioFront.js"></script>
     <script src="Services/ServicioTiempo.js"></script>
     <script src="Services/ServicioPrueba.js"></script>
@@ -21,7 +21,6 @@
 </head>
 <body ng-controller="myCtrl">
     <div class="container">
-        <input type="button" name="prueba" value="prueba" ng-click="setInfoLocalFromWeb('pesos')" />
 
         <div class="card card-inverse" style="background-color: #333; border-color: #333;">
             <div class="card-block">
@@ -34,7 +33,7 @@
                 <div class="card-block">
                     <h4 class="card-title">Dolar</h4>
                     <!--elemento a iterar-->
-                    <div class="card card-outline-info mb-3 text-center" ng-repeat="item in DataBase | filter:{ moneda:'dolar'}">
+                    <div class="card card-outline-info mb-3 text-center" ng-repeat="item in DataBase | filter:{ moneda:'dolar'} | orderBy: '-stamp' ">
                         <div class="card-block">
                             <blockquote class="card-blockquote">
                                 <p>Cotiza en: <b>{{item.PrecioVenta}} </b> <small class="text-muted">LU:</small><small class="text-muted">{{servicioTiempoAnterior(item.stamp)}}</small></p>
@@ -48,7 +47,7 @@
                 <div class="card-block">
                     <h4 class="card-title">Pesos</h4>
                     <!--elemento a iterar-->
-                    <div class="card card-outline-info mb-3 text-center" ng-repeat="item in DataBase | filter:{ moneda:'pesos'}">
+                    <div class="card card-outline-info mb-3 text-center" ng-repeat="item in DataBase | filter:{ moneda:'pesos'} | orderBy: '-stamp' ">
                         <div class="card-block">
                             <blockquote class="card-blockquote">
                                 <p>Cotiza en: <b>{{item.PrecioVenta}} </b> <small class="text-muted">LU:</small><small class="text-muted">{{servicioTiempoAnterior(item.stamp)}}</small></p>
@@ -62,7 +61,7 @@
                 <div class="card-block">
                     <h4 class="card-title">Reales</h4>
                     <!--elemento a iterar-->
-                    <div class="card card-outline-info mb-3 text-center" ng-repeat="item in DataBase | filter:{ moneda:'real'}">
+                    <div class="card card-outline-info mb-3 text-center" ng-repeat="item in DataBase | filter:{ moneda:'real'} | orderBy: '-stamp' ">
                         <div class="card-block">
                             <blockquote class="card-blockquote">
                                 <p>Cotiza en: <b>{{item.PrecioVenta}} </b> <small class="text-muted">LU:</small><small class="text-muted">{{servicioTiempoAnterior(item.stamp)}}</small></p>
