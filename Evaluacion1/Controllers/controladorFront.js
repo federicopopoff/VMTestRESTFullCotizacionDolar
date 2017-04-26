@@ -9,9 +9,22 @@ myCtrl.$inject = ['$scope', 'apiservice']
 //declaracion de metodos y propiedades
 
 function myCtrl($scope, apiservice) {
+    $scope.localStorage = localStorage.DataStorage;
+
+    if (localStorage.DataStorage != undefined) {
+        $scope.Dolar = JSON.parse( localStorage.DataStorage);
+    } else {
+        apiservice.setInfoLocalFromWeb('dolar').then($scope.Dolar = JSON.parse(localStorage.DataStorage));
+        
+    }
+
     $scope.setInfoLocalFromWeb = function () {
         apiservice.setInfoLocalFromWeb('dolar');
     }
+
+
+
+
     $scope.haceCuantoTiempo = function () {
         //obtencion de datos
         var referencia = 1493099024124;

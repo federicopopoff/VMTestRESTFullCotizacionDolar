@@ -36,13 +36,13 @@
                 <div class="card-block">
                     <h4 class="card-title">Dolar</h4>
                     <!--elemento a iterar-->
-                        <div class="card card-outline-info mb-3 text-center">
-                            <div class="card-block">
-                                <blockquote class="card-blockquote">
-                                    <p>Cotiza en: <b>15.300 </b> <small class="text-muted">Ultima actualizacion:</small><small class="text-muted">3m</small></p>{{5+5}}
-                                </blockquote>
-                            </div>
+                    <div class="card card-outline-info mb-3 text-center" ng-repeat="item in Dolar">
+                        <div class="card-block">
+                            <blockquote class="card-blockquote">
+                                <p>Cotiza en: <b>{{item.PrecioVenta}} </b> <small class="text-muted">Ultima actualizacion:</small><small class="text-muted">3m</small></p>
+                            </blockquote>
                         </div>
+                    </div>
                     <!----------------------------->
                 </div>
             </div>
@@ -65,7 +65,7 @@
                 <div class="card-block">
                     <h4 class="card-title">Reales</h4>
                     <!--elemento a iterar-->
-                        <div class="card card-outline-info mb-3 text-center">
+                        <div class="card card-outline-info mb-3 text-center" >
                             <div class="card-block">
                                 <blockquote class="card-blockquote">
                                     <p>Cotiza en: <b>15.300 </b> <small class="text-muted">Ultima actualizacion:</small><small class="text-muted">3m</small></p>
@@ -79,6 +79,5 @@
         </div>
          
     </div>
-  
 </body>
 </html>
