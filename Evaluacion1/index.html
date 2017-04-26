@@ -21,16 +21,12 @@
 </head>
 <body ng-controller="myCtrl">
     <div class="container">
-        <input type="button" name="prueba" value="prueba" ng-click="setInfoLocalFromWeb('dolar')" />
+        <input type="button" name="prueba" value="prueba" ng-click="setInfoLocalFromWeb('pesos')" />
 
         <div class="card card-inverse" style="background-color: #333; border-color: #333;">
             <div class="card-block">
-                <h3 class="card-title">Test Javascript</h3>
+                <h3 class="card-title">Cotizacion moneda</h3>
                 <p class="card-text">Necesitamos crear el FrontEnd de una aplicación que muestre la cotizaciones de monedas.</p>
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary">Simulacion Mock</button>
-                    <button type="button" class="btn btn-secondary">Consumo de Datos</button>
-                </div>
             </div>
         </div>
         <div class="card-group">
@@ -38,7 +34,7 @@
                 <div class="card-block">
                     <h4 class="card-title">Dolar</h4>
                     <!--elemento a iterar-->
-                    <div class="card card-outline-info mb-3 text-center" ng-repeat="item in DataBase">
+                    <div class="card card-outline-info mb-3 text-center" ng-repeat="item in DataBase | filter:{ moneda:'dolar'}">
                         <div class="card-block">
                             <blockquote class="card-blockquote">
                                 <p>Cotiza en: <b>{{item.PrecioVenta}} </b> <small class="text-muted">LU:</small><small class="text-muted">{{servicioTiempoAnterior(item.stamp)}}</small></p>
@@ -52,14 +48,13 @@
                 <div class="card-block">
                     <h4 class="card-title">Pesos</h4>
                     <!--elemento a iterar-->
-                        <div class="card card-outline-info mb-3 text-center">
-                            <div class="card-block">
-                                <blockquote class="card-blockquote">
-                                    <p>Cotiza en: <b>15.300 </b> <small class="text-muted">Ultima actualizacion:</small><small class="text-muted">3m</small></p>
-
-                                </blockquote>
-                            </div>
+                    <div class="card card-outline-info mb-3 text-center" ng-repeat="item in DataBase | filter:{ moneda:'pesos'}">
+                        <div class="card-block">
+                            <blockquote class="card-blockquote">
+                                <p>Cotiza en: <b>{{item.PrecioVenta}} </b> <small class="text-muted">LU:</small><small class="text-muted">{{servicioTiempoAnterior(item.stamp)}}</small></p>
+                            </blockquote>
                         </div>
+                    </div>
                     <!----------------------------->
                 </div>
             </div>
@@ -67,14 +62,13 @@
                 <div class="card-block">
                     <h4 class="card-title">Reales</h4>
                     <!--elemento a iterar-->
-                        <div class="card card-outline-info mb-3 text-center" >
-                            <div class="card-block">
-                                <blockquote class="card-blockquote">
-                                    <p>Cotiza en: <b>15.300 </b> <small class="text-muted">Ultima actualizacion:</small><small class="text-muted">3m</small></p>
-
-                                </blockquote>
-                            </div>
+                    <div class="card card-outline-info mb-3 text-center" ng-repeat="item in DataBase | filter:{ moneda:'real'}">
+                        <div class="card-block">
+                            <blockquote class="card-blockquote">
+                                <p>Cotiza en: <b>{{item.PrecioVenta}} </b> <small class="text-muted">LU:</small><small class="text-muted">{{servicioTiempoAnterior(item.stamp)}}</small></p>
+                            </blockquote>
                         </div>
+                    </div>
                     <!----------------------------->
                 </div>
             </div>
