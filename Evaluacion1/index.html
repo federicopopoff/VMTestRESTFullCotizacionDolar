@@ -19,7 +19,7 @@
 </head>
 <body ng-controller="myCtrl">
     <div class="container">
-        <input type="button" name="prueba" value="prueba" ng-click="setInfoLocalFromWeb()" />
+        <input type="button" name="prueba" value="prueba" ng-click="haceCuantoTiempo(1493172604448)" />
 
         <div class="card card-inverse" style="background-color: #333; border-color: #333;">
             <div class="card-block">
@@ -39,7 +39,7 @@
                     <div class="card card-outline-info mb-3 text-center" ng-repeat="item in Dolar">
                         <div class="card-block">
                             <blockquote class="card-blockquote">
-                                <p>Cotiza en: <b>{{item.PrecioVenta}} </b> <small class="text-muted">Ultima actualizacion:</small><small class="text-muted">3m</small></p>
+                                <p>Cotiza en: <b>{{item.PrecioVenta}} </b> <small class="text-muted">LU:</small><small class="text-muted">{{haceCuantoTiempo(item.stamp)}}</small></p>
                             </blockquote>
                         </div>
                     </div>
