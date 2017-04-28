@@ -32,6 +32,9 @@ El repositorio contiene un proyecto en VS2013 que al entrar en debug apertura un
 2. Un cambio de la direccion URL tal como http://localhost:8080/Cotizacion.svc/{moneda} siendo moneda la variable de moneda de interes; al aplicar http://localhost:8080/Cotizacion.svc/dolar.
 3. Mediante la direccion http://localhost:8080/index.html usted puede acceder al cliente de cotizacion
 4. En la carpeta del proyecto App/config.js encontrara un archivo con el parametro tiempoDeTrigger es una variable que sirve para setear el tiempo de refrescamiento en milisegundos
+5. Para los datos mock se agrego al servidor la interpretacion de la direccion Uri http://localhost:8080/Cotizacion.svc/test/{moneda}/{variabilidad}; siendo moneda una variable a elegir entre dolar, real, y pesos; mientras que variabilidad estará entre en el rango de muchaPrecision, precision, pocaPrecision, y muyPocaPrecision.
+6. Para el uso del cliente en modo de consumo de datos del API del banco o consumo de datos del servidor de datos mock debe acceder a al archivo App/config.js y realizar set en la variable origenDatos con valor 'server' o 'mock'.
+7. Para en consumo de datos mock debe precisar la variabilidad de los datos mediante el archivo App/config.js en sus variable variabilidad
 
 ## Patron strategy
 En funcion de cumplir con el requisito de trabajo que es el uso del patron strategy se planteo las siguientes consideraciones:

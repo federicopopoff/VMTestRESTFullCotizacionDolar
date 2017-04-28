@@ -130,21 +130,15 @@
     <Content Include="Scripts\tether.min.js" />
     <Content Include="index.html" />
     <Content Include="Scripts\xml2json.js" />
+    <Content Include="Services\servicioMock.js" />
     <Content Include="Services\servicioFront.js" />
-    <Content Include="Services\ServicioPrueba.js" />
     <Content Include="Services\ServicioTiempo.js" />
     <Content Include="styles\bootstrap.min.css" />
-    <Content Include="variables.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cotizacion.svc.cs">
       <DependentUpon>Cotizacion.svc</DependentUpon>
-    </Compile>
-    <Compile Include="CotizacionInicial.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CotizacionInicial.resx</DependentUpon>
     </Compile>
     <Compile Include="ICotizacion.cs" />
     <Compile Include="moneda.cs" />
@@ -180,12 +174,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="CotizacionInicial.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CotizacionInicial.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

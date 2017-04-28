@@ -5,7 +5,6 @@ C:\Users\Hans.Aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion
 C:\Users\Hans.Aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\obj\Debug\Evaluacion1.csproj.GenerateResource.Cache
 C:\Users\Hans.Aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\obj\Debug\Evaluacion1.dll
 C:\Users\Hans.Aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\obj\Debug\Evaluacion1.pdb
-C:\Users\Hans.Aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\obj\Debug\Evaluacion1.CotizacionInicial.resources
 C:\Users\Hans.Aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\bin\EntityFramework.dll
 C:\Users\Hans.Aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\bin\EntityFramework.SqlServer.dll
 C:\Users\Hans.Aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\bin\EntityFramework.xml
