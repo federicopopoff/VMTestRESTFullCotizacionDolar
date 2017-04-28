@@ -30,3 +30,4 @@ C:\Users\Hans.Aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion
 C:\Users\Hans.Aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\bin\System.Web.WebPages.xml
 C:\Users\Hans.Aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Hans.Aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\bin\System.Web.WebPages.Razor.xml
+C:\Users\Hans.Aparicio\documents\visual studio 2013\Projects\Evaluacion1Solucion\Evaluacion1\obj\Debug\Evaluacion1.csprojResolveAssemblyReference.cache

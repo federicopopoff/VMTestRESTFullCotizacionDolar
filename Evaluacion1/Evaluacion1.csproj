@@ -148,6 +148,7 @@
     <Content Include="Services\ServicioPrueba.js" />
     <Content Include="Services\ServicioTiempo.js" />
     <Content Include="styles\bootstrap.min.css" />
+    <Content Include="variables.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +183,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="toolBox.cs" />
     <Compile Include="variable.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>

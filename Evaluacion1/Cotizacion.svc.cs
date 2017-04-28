@@ -9,6 +9,7 @@ using System.ServiceModel.Web;
 using System.Net;
 using System.Windows.Forms;
 using System.Resources;
+using System.IO;
 
 namespace Evaluacion1
 {
@@ -16,91 +17,19 @@ namespace Evaluacion1
     // NOTE: In order to launch WCF Test Client for testing this service, please select Cotizacion.svc or Cotizacion.svc.cs at the Solution Explorer and start debugging.
     public class Cotizacion : ICotizacion
     {
-        // cambio USD to ARS
-        //protected double dolar = 15.7;
-        double dolar;
-        // cambio ARS to BRL
-        public double real = 0.205;
-        // cambio ARS to USD
-        public double pesos = 0.064;
+      
 
-        //metodo de comparacion de divisa
-        public bool ComparacionStrings(string moneda, string divisa)
-        {
-            return divisa.Equals(moneda,StringComparison.OrdinalIgnoreCase);
-        }
-        //metodo de conexion con consumo de datos
-        public moneda getData(string sUrlRequest)
-        {
-            var dataBanca = new WebClient().DownloadString(sUrlRequest);
-            string[] data = dataBanca.Split('"');
-            moneda Divisa = new moneda(Convert.ToString( data[1]), Convert.ToString(data[3]), Convert.ToString(data[5]));
-            return Divisa;
-        }
-        //Obtener variacion de numero
-        public double getVariation(double numero, string variabilidad)
-        {
-            Random rnd = new Random();
-            int plus = rnd.Next(0, 2);
-            switch (variabilidad)
-            {
-                case "muchaPrecision":
-                    if (plus == 0)
-                    {
-                        numero = numero - 0.001;
-                    }
-                    else
-                    {
-                        numero = numero + 0.001;
-                    }
-                    break;
-                case "precision":
-                    if (plus == 0)
-                    {
-                        numero = numero - 0.01;
-                    }
-                    else
-                    {
-                        numero = numero + 0.01;
-                    }
-                    break;
-                case "pocaPrecision":
-                    if (plus == 0)
-                    {
-                        numero = numero - 0.1;
-                    }
-                    else
-                    {
-                        numero = numero + 0.1;
-                    }
-                    break;
-                case "muyPocaPrecision":
-                    if (plus == 0)
-                    {
-                        numero = numero - 1;
-                    }
-                    else
-                    {
-                        numero = numero + 1;
-                    }
-                    break;
-                default:
-                    numero = 0;
-                    break;
-            }
-            return numero;
-
-        } 
         //metodo de control de dominio para manipulacion restfull
         public  moneda getInformationWeb(string tipoMoneda)
         {
-            if (ComparacionStrings(tipoMoneda,"dolar"))
+            toolBox generalTool = new toolBox();
+            if (generalTool.ComparacionStrings(tipoMoneda,"dolar"))
             {
-                return getData("https://www.bancoprovincia.com.ar/Principal/Dolar");
+                return generalTool.getData("https://www.bancoprovincia.com.ar/Principal/Dolar");
             }
             else 
             {
-                if (ComparacionStrings(tipoMoneda, "real") || ComparacionStrings(tipoMoneda, "pesos"))
+                if (generalTool.ComparacionStrings(tipoMoneda, "real") || generalTool.ComparacionStrings(tipoMoneda, "pesos"))
                 {
                     throw new WebFaultException(System.Net.HttpStatusCode.Unauthorized);
                 }
@@ -113,26 +42,28 @@ namespace Evaluacion1
         //metodo de control de dominio para manipulacion restfull mediante generacion de datos mock
         public moneda getInformationWebTest(string tipoMoneda, string variabilidad)
         {
+            toolBox generalTool = new toolBox();
             tipoMoneda = tipoMoneda.ToLower();
             string aux;
-            if (ComparacionStrings(tipoMoneda, "dolar"))
+            if (generalTool.ComparacionStrings(tipoMoneda, "dolar"))
             {
-                dolar = getVariation(dolar, variabilidad);
-                aux = dolar.ToString();
+                generalTool.dolar = generalTool.getVariation(generalTool.dolar, variabilidad);
+                aux = generalTool.dolar.ToString();
                 return new moneda("0", aux, "N/A");
+
             }
             else
             {
-                if (ComparacionStrings(tipoMoneda, "real"))
+                if (generalTool.ComparacionStrings(tipoMoneda, "real"))
                 {
-                    real = getVariation(real, variabilidad);
-                    aux = real.ToString();
+                    generalTool.real = generalTool.getVariation(generalTool.real, variabilidad);
+                    aux = generalTool.real.ToString();
                     return new moneda("0", aux, "N/A");
                 }
                 else
                 {
-                    pesos = getVariation(pesos, variabilidad);
-                    aux = pesos.ToString();
+                    generalTool.pesos = generalTool.getVariation(generalTool.pesos, variabilidad);
+                    aux = generalTool.pesos.ToString();
                     return new moneda("0", aux, "N/A");
                 }
             }
