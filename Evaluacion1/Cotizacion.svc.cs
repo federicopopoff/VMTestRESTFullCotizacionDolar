@@ -25,17 +25,30 @@ namespace Evaluacion1
             toolBox generalTool = new toolBox();
             if (generalTool.ComparacionStrings(tipoMoneda,"dolar"))
             {
-                return generalTool.getData("https://www.bancoprovincia.com.ar/Principal/Dolar");
+                Strategy.Documento objDocumento = new Strategy.Documento();
+                objDocumento.Estrategia = new Strategy.EstrategiaDolar();
+                return objDocumento.respuesta(); 
             }
             else 
             {
-                if (generalTool.ComparacionStrings(tipoMoneda, "real") || generalTool.ComparacionStrings(tipoMoneda, "pesos"))
+                if (generalTool.ComparacionStrings(tipoMoneda, "real"))
                 {
-                    throw new WebFaultException(System.Net.HttpStatusCode.Unauthorized);
+                    Strategy.Documento objDocumento = new Strategy.Documento();
+                    objDocumento.Estrategia = new Strategy.EstrategiaReal();
+                    return objDocumento.respuesta();
                 }
                 else
                 {
-                    return new moneda("0", "0", "N/A");
+                    if (generalTool.ComparacionStrings(tipoMoneda, "pesos"))
+                    {
+                        Strategy.Documento objDocumento = new Strategy.Documento();
+                        objDocumento.Estrategia = new Strategy.EstrategiaPesos();
+                        return objDocumento.respuesta();
+                    }
+                    else
+                    {
+                        throw new WebFaultException(System.Net.HttpStatusCode.NotFound);
+                    }
                 }
             }
         }
