@@ -4,11 +4,11 @@ angular
     .controller('myCtrl', myCtrl);
 
 //inyeccion
-myCtrl.$inject = ['$scope', 'apiservice', 'tiempo','prueba','$interval']
+myCtrl.$inject = ['$scope', 'apiservice', 'tiempo','$interval']
 
 //declaracion de metodos y propiedades
 
-function myCtrl($scope, apiservice, tiempo,prueba,$interval) {
+function myCtrl($scope, apiservice, tiempo,$interval) {
     //disparador timer para ejecucion de requests
     var request = function () {
         $scope.setInfoLocalFromWeb('dolar');
@@ -28,9 +28,13 @@ function myCtrl($scope, apiservice, tiempo,prueba,$interval) {
         }
     }
 
-    //presicion de tiempo tipo twitter
+    //precision de tiempo tipo twitter
     $scope.servicioTiempoAnterior = function (ref) {
         return tiempo.getTimeAgo(ref);
+    }
+
+    $scope.sum = function () {
+        $scope.z = $scope.x + $scope.y;
     }
 
  }

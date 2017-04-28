@@ -15,8 +15,10 @@ namespace Evaluacion1
     {
         //Cotizacion moneda
         [OperationContract]
-        [WebInvoke(Method="GET",UriTemplate="/{tipoMoneda}",BodyStyle=WebMessageBodyStyle.Bare,ResponseFormat=WebMessageFormat.Xml)]
+        [WebInvoke(Method="GET",UriTemplate="/{tipoMoneda}/",BodyStyle=WebMessageBodyStyle.Bare,ResponseFormat=WebMessageFormat.Xml)]
         moneda getInformationWeb(string tipoMoneda);
-
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/test/{tipoMoneda}/{variabilidad}", BodyStyle = WebMessageBodyStyle.Bare, ResponseFormat = WebMessageFormat.Xml)]
+        moneda getInformationWebTest(string tipoMoneda, string variabilidad);
     }
 }
