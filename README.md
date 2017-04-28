@@ -33,3 +33,9 @@ El repositorio contiene un proyecto en VS2013 que al entrar en debug apertura un
 3. Mediante la direccion http://localhost:8080/index.html usted puede acceder al cliente de cotizacion
 4. En la carpeta del proyecto App/config.js encontrara un archivo con el parametro tiempoDeTrigger es una variable que sirve para setear el tiempo de refrescamiento en milisegundos
 
+## Patron strategy
+En funcion de cumplir con el requisito de trabajo que es el uso del patron strategy se planteo las siguientes consideraciones:
+1. Se realizo una carpeta en el proyecto con el nombre strategy y se planteo que la estrategia incluia la accion de responder ante tres escenarios, peticion de la cotizacion del dolar,reales o pesos.
+2. cada divisa cuenta con su propia clase para facilitar posterior mantenimiento, por lo que se realizo tres clases que implementaban a estrategia.
+3. se realizo una clase documento la cual crea el objeto estrategia y permite implementar la estrategia deseada 
+
