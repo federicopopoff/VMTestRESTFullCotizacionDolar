@@ -10,8 +10,6 @@ myCtrl.$inject = ['$scope', 'apiservice', 'tiempo','$interval','mockServices']
 
 function myCtrl($scope, apiservice, tiempo, $interval, mockServices) {
     //disparador timer para ejecucion de requests
-    $scope.consumo == 'mock'
-
     var request = function () {
         if (origenDatos == 'server') {
             $scope.setInfoLocalFromWeb('dolar');
@@ -31,27 +29,28 @@ function myCtrl($scope, apiservice, tiempo, $interval, mockServices) {
     $scope.setInfoLocalFromWeb = function (ref) {
         apiservice.setInfoLocalFromWeb(ref);
         if (localStorage.DataStorage != undefined) {
-            $scope.DataBase = JSON.parse( localStorage.DataStorage);
+            $scope.DataBase = JSON.parse(localStorage.DataStorage);
         } else {
             console.log("error en obtencion de datos");
         }
-    }
+        testSetInfoLocalFromWeb = true;
+    };
     //funcion de comunicacion y solicitud de datos mock
     $scope.setInfoLocalFromTest = function (ref, variabilidad) {
         mockServices.setInfoLocalFromWeb(ref, variabilidad);
+        testSetInfoLocalFromTest = true;
         if (localStorage.DataStorage != undefined) {
             $scope.DataBase = JSON.parse(localStorage.DataStorage);
         } else {
             console.log("error en obtencion de datos");
         }
-    }
+    };
     //precision de tiempo tipo twitter
     $scope.servicioTiempoAnterior = function (ref) {
+        testServicioTiempoAnterior = true;
         return tiempo.getTimeAgo(ref);
-    }
+    };
 
-    $scope.sum = function () {
-        $scope.z = $scope.x + $scope.y;
-    }
+    $scope.ControllerTestAux = 'test';
 
  }

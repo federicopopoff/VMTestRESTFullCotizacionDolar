@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>unit test</title>
+    <!--jasmine-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine-html.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/boot.min.js"></script>
+    <!--styles-->
+    <link href="styles/bootstrap.min.css" rel="stylesheet" />
+    <!--libraries-->
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script src="Scripts/tether.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <script src="Scripts/angular-mocks.js"></script>
+    <script src="Scripts/xml2json.js"></script>
+    <!--scripts-->
+    <script src="App/config.js"></script>
+    <script src="App/myApp.js"></script>
+    <script src="Services/servicioFront.js"></script>
+    <script src="Services/ServicioTiempo.js"></script>
+    <script src="Services/servicioMock.js"></script>
+    <script src="Controllers/controladorFront.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        //Unit test al controlador mCtrl
+        describe('Comprobacion de funciones en el scope de myCtrl', function () {
+            //registro de en instanciamiento de modulo
+            beforeEach(angular.mock.module('app'));
+            // in yeccion de servicio $controller para instanciamiento del controllador
+            var $controller;
+
+            beforeEach(
+                inject(function (_$controller_, _apiservice_) { $controller = _$controller_, apiservice = _apiservice_ })              
+            );
+
+            
+            //prueba de instanciamiento de controlador
+            describe('Comprobacion de instanciamiento del controlador',function(){
+                it('Se comprueba el instanciamiento del controlador myCtrl', function () {
+                    var $scope = {};
+                    var ctrl = $controller('myCtrl', { $scope: $scope });
+                    expect($scope.ControllerTestAux).toBe("test");
+                });
+            });
+            
+            //ejecucion de funcion  setInfoLocalFromWeb con dolar como valor de referencia
+            describe('Comprobacion de llamado de funcion setInfoLocalFromWeb', function () {
+                it('La funcion setInfoLocalFromWeb una variable testSetInfoLocalFromWeb incializada como falsa en un valor true para ser evaluado la llamada de la funcion', function () {
+                    var $scope = {};
+                    var ctrl = $controller('myCtrl', { $scope: $scope, apiservice: apiservice });
+                    $scope.setInfoLocalFromWeb('dolar');
+                    //$scope.comprobacion();
+                    expect(testSetInfoLocalFromWeb).toBe(true);
+                });
+            });
+
+            //ejecucion de funcion  setInfoLocalFromWeb con dolar como valor de referencia
+            describe('Comprobacion de llamado de funcion setInfoLocalFromTest', function () {
+                it('La funcion setInfoLocalFromTest una variable testSetInfoLocalFromWeb incializada como falsa en un valor true para ser evaluado la llamada de la funcion', function () {
+                    var $scope = {};
+                    var ctrl = $controller('myCtrl', { $scope: $scope, apiservice: apiservice });
+                    $scope.setInfoLocalFromTest('dolar','precision');
+                    //$scope.comprobacion();
+                    expect(testSetInfoLocalFromTest).toBe(true);
+                });
+            });
+
+            //ejecucion de funcion  servicioTiempoAnterior 
+            describe('Comprobacion de llamado de funcion servicioTiempoAnterior', function () {
+                it('La funcion servicioTiempoAnterior una variable testServicioTiempoAnterior incializada como falsa en un valor true para ser evaluado la llamada de la funcion', function () {
+                    var $scope = {};
+                    var ctrl = $controller('myCtrl', { $scope: $scope, apiservice: apiservice });
+                    $scope.servicioTiempoAnterior('dolar');
+                    //$scope.comprobacion();
+                    expect(testServicioTiempoAnterior).toBe(true);
+                });
+            });
+        });
+        //Unit test al servicio apiservice
+        describe('Comprabacion de servicio apiservice', function () {
+            //registro de en instanciamiento de modulo
+            beforeEach(angular.mock.module('app'), function ($provide) {
+
+            });
+
+            var apiservice, $httpBackend;
+
+            beforeEach(inject(function ($injector) {
+                $httpBackend = $injector.get('$httpBackend');
+                apiservice = $injector.get('apiservice');
+
+                $httpBackend.when('GET', "./Cotizacion.svc/dolar").respond(200, { Actualizacion: "Actualizada al 28/4/2017 15:00", PrecioCompra: "15.300", PrecioVenta: "15.700" });
+                $httpBackend.when('GET', "./Cotizacion.svc/real").respond(401);
+                $httpBackend.when('GET', "./Cotizacion.svc/pesos").respond(401);
+            }));
+            beforeEach(
+                inject(function (_$controller_,) { $controller = _$controller_, apiservice = _apiservice_ })
+            );
+
+            it('apiservice.setInfoLocalFromWeb() - test', function () {
+                console.log(apiservice.setInfoLocalFromWeb('dolar'));
+            })
+
+        });
+    </script>
+    
+
+</body>
+</html>

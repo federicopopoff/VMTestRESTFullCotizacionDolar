@@ -42,3 +42,5 @@ En funcion de cumplir con el requisito de trabajo que es el uso del patron strat
 2. cada divisa cuenta con su propia clase para facilitar posterior mantenimiento, por lo que se realizo tres clases que implementaban a estrategia.
 3. se realizo una clase documento la cual crea el objeto estrategia y permite implementar la estrategia deseada 
 
+## Test
+Para ingresar al test basta con ingresar a la dirección http://localhost:8080/unitTest.html 

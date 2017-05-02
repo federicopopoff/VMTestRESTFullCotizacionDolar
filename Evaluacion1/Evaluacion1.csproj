@@ -112,6 +112,7 @@
     <Content Include="App\myApp.js" />
     <Content Include="Controllers\controladorFront.js" />
     <Content Include="Cotizacion.svc" />
+    <Content Include="unitTest.html" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular.min.js" />
